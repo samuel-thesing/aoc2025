@@ -1,0 +1,6 @@
+.idea/
+bin/
+bin-int/
+cmake-build-debug/
+cmake-build-release/
+src/**/i?.txt
