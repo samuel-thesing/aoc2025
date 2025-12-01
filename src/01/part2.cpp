@@ -10,12 +10,10 @@ int solve(const std::string &input) {
 	for (const auto& line : lines) {
 		const auto [c, d] = extract_data<char, int>(line, std::regex("(.?)(\\d+)"));
 
-		int dist = d;
-		result += std::abs(dist / WHEEL_SIZE);
-		dist %= WHEEL_SIZE;
+		result += std::abs(d / WHEEL_SIZE); // full wraps
 
-		if (c == 'L') dist = -dist;
-		int next = previous + dist;;
+		auto dist = (c == 'L' ? -1 : 1) * (d % WHEEL_SIZE);
+		int next = previous + dist;
 
 		// wrapped or on 0 and wasn't on 0 before
 		if ((next <= 0 && previous != 0) || next > WHEEL_SIZE - 1) {
