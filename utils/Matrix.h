@@ -480,6 +480,10 @@ typedef Matrix<2, 1, int> Vec2i;
 typedef Matrix<3, 1, int> Vec3i;
 typedef Matrix<4, 1, int> Vec4i;
 
+typedef Matrix<2, 1, long long> Vec2l;
+typedef Matrix<3, 1, long long> Vec3l;
+typedef Matrix<4, 1, long long> Vec4l;
+
 typedef Matrix<2, 2, float> Mat2;
 typedef Matrix<3, 3, float> Mat3;
 typedef Matrix<4, 4, float> Mat4;
