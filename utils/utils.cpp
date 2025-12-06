@@ -151,7 +151,7 @@ std::vector<std::string> split_lines(const std::string& s) {
  *	@param s string to be split
  *	@param delim delimiter (can be longer than 1 char)
  */
-std::vector<std::string> split(const std::string& s, const std::string& delim) {
+std::vector<std::string> split(const std::string& s, const std::string& delim, bool trim_parts) {
 	if (delim.empty()) {
 		Logger::critical("`split` received an empty delimiter");
 		return {};
@@ -166,12 +166,14 @@ std::vector<std::string> split(const std::string& s, const std::string& delim) {
 
 	while (curDelim != std::string::npos) {
 		std::string part = s.substr(lastDelim, curDelim - lastDelim);
-		parts.emplace_back(trim(part));
+		if (trim_parts) part = trim(part);
+		parts.emplace_back(part);
 		lastDelim = curDelim + delim.size();
 		curDelim = s.find(delim, lastDelim);
 	}
 
 	auto lastPart = s.substr(lastDelim);
+	if (trim_parts) lastPart = trim(lastPart);
 	parts.emplace_back(trim(lastPart));
 
 	return parts;

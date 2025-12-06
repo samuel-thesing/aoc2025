@@ -209,7 +209,7 @@ inline long long string_to_generic<long long>(std::string s) {
  *	@param s string to be split
  *	@param delim delimiter (can be longer than 1 char)
  */
-std::vector<std::string> split(const std::string& s, const std::string& delim);
+std::vector<std::string> split(const std::string& s, const std::string& delim, bool trim_parts=true);
 
 /**
  *	Splits a given string at the given delimiter and trims the parts before converting them using the given function.
@@ -355,7 +355,7 @@ std::vector<std::string> split_regex(const std::string& s, std::regex& pattern) 
 }
 
 template<typename T>
-std::vector<std::string> split_regex(const std::string& s, std::regex& pattern, std::function<T(std::string)> fn) {
+std::vector<T> split_regex(const std::string& s, std::regex& pattern, std::function<T(std::string)> fn) {
 	std::sregex_token_iterator iter(s.begin(), s.end(), pattern, -1);
 	std::sregex_token_iterator end;
 	auto result = std::vector<T>();
