@@ -277,7 +277,7 @@ public:
 		}
 	}
 
-	T norm() const requires (N == 1) {
+	double norm() const requires (N == 1) {
 		float sum = 0.f;
 		for (int i = 0; i < M; i++) {
 			sum += get(i) * get(i);
