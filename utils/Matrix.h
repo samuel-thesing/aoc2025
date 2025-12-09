@@ -268,6 +268,22 @@ public:
 		return result;
 	}
 
+	Type min(const Type& m) const {
+		auto result = Type();
+		for (int i = 0; i < M*N; i++) {
+			result.set(i, std::min(get(i), m.get(i)));
+		}
+		return result;
+	}
+
+	Type max(const Type& m) const {
+		auto result = Type();
+		for (int i = 0; i < M*N; i++) {
+			result.set(i, std::max(get(i), m.get(i)));
+		}
+		return result;
+	}
+
 	Type transposed() const {
 		auto result = Type();
 		for (int i = 0; i < M; i++) {
