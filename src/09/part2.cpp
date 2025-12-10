@@ -18,6 +18,8 @@ long long solve(const std::string &input) {
 		for (int j = i+1; j < red_tiles.size(); j++) {
 			auto a = red_tiles[i];
 			auto b = red_tiles[j];
+			auto size = (abs(a.x() - b.x()) + 1) * (abs(a.y() - b.y()) + 1);
+			if (size <= result) continue;
 
 			auto tl = a.min(b);
 			auto br = a.max(b);
@@ -67,7 +69,6 @@ long long solve(const std::string &input) {
 				}
 			}
 			if (edge_inside) continue;
-			auto size = (abs(a.x() - b.x()) + 1) * (abs(a.y() - b.y()) + 1);
 			result = max(result, size);
 		}
 	}
