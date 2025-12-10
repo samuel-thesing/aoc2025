@@ -9,14 +9,14 @@ set(PROJECT_BINARY_DIR "${WORKSPACE_BINARY_DIR}/${CMAKE_BUILD_TYPE}/${PROJECT_NA
 
 add_executable("${PROJECT_NAME}_1"
         part1.cpp
-        ../../utils/Logger.cpp
-        ../../utils/utils.cpp
-        ../../utils/utils.h
-        ../../utils/matrix.h
+        ${WORKSPACE_DIR}/utils/Logger.cpp
+        ${WORKSPACE_DIR}/utils/utils.cpp
+        ${WORKSPACE_DIR}/utils/utils.h
+        ${WORKSPACE_DIR}/utils/matrix.h
 )
 
 target_link_libraries("${PROJECT_NAME}_1" spdlog::spdlog)
-target_include_directories("${PROJECT_NAME}_1" PUBLIC ../../utils)
+target_include_directories("${PROJECT_NAME}_1" PUBLIC ${WORKSPACE_DIR}/utils)
 
 set_target_properties("${PROJECT_NAME}_1" PROPERTIES
         ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_ARTIFACT_DIR}
@@ -28,14 +28,14 @@ set_target_properties("${PROJECT_NAME}_1" PROPERTIES
 
 add_executable("${PROJECT_NAME}_2"
         part2.cpp
-        ../../utils/Logger.cpp
-        ../../utils/utils.cpp
-        ../../utils/utils.h
-        ../../utils/matrix.h
+        ${WORKSPACE_DIR}/utils/Logger.cpp
+        ${WORKSPACE_DIR}/utils/utils.cpp
+        ${WORKSPACE_DIR}/utils/utils.h
+        ${WORKSPACE_DIR}/utils/matrix.h
 )
 
 target_link_libraries("${PROJECT_NAME}_2" spdlog::spdlog)
-target_include_directories("${PROJECT_NAME}_2" PUBLIC ../../utils)
+target_include_directories("${PROJECT_NAME}_2" PUBLIC ${WORKSPACE_DIR}/utils)
 
 set_target_properties("${PROJECT_NAME}_2" PROPERTIES
         ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_ARTIFACT_DIR}
