@@ -1,4 +1,4 @@
-set(PROJECT_NAME "aoc2025_05")
+set(PROJECT_NAME "aoc${AOC_YEAR}_${AOC_DAY_NAME}")
 project(${PROJECT_NAME})
 
 set(PROJECT_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
@@ -15,14 +15,14 @@ add_executable("${PROJECT_NAME}_1"
         ${WORKSPACE_DIR}/utils/matrix.h
 )
 
-target_link_libraries("${PROJECT_NAME}_1" spdlog::spdlog)
-target_include_directories("${PROJECT_NAME}_1" PUBLIC ${WORKSPACE_DIR}/utils)
-
 set_target_properties("${PROJECT_NAME}_1" PROPERTIES
         ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_ARTIFACT_DIR}
         LIBRARY_OUTPUT_DIRECTORY ${PROJECT_ARTIFACT_DIR}
         RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}
 )
+
+target_link_libraries("${PROJECT_NAME}_1" spdlog::spdlog)
+target_include_directories("${PROJECT_NAME}_1" PUBLIC ${WORKSPACE_DIR}/utils)
 
 # ================================ Part 2 ================================
 
@@ -34,11 +34,11 @@ add_executable("${PROJECT_NAME}_2"
         ${WORKSPACE_DIR}/utils/matrix.h
 )
 
-target_link_libraries("${PROJECT_NAME}_2" spdlog::spdlog)
-target_include_directories("${PROJECT_NAME}_2" PUBLIC ${WORKSPACE_DIR}/utils)
-
 set_target_properties("${PROJECT_NAME}_2" PROPERTIES
         ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_ARTIFACT_DIR}
         LIBRARY_OUTPUT_DIRECTORY ${PROJECT_ARTIFACT_DIR}
         RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}
 )
+
+target_link_libraries("${PROJECT_NAME}_2" spdlog::spdlog)
+target_include_directories("${PROJECT_NAME}_2" PUBLIC ${WORKSPACE_DIR}/utils)
